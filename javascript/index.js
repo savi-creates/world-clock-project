@@ -24,5 +24,30 @@ function updateTime() {
   tokyoTimeElement.innerHTML = tokyoTime.format("h:mm:ss A");
 }
 
+function updateCity(event) {
+  let cityTimeZone = event.target.value;
+
+  // Get the correct city name for display
+  let cityName = event.target.options[event.target.selectedIndex].text;
+
+  if (cityTimeZone === "current-location") {
+    cityTimeZone = moment.tz.guess(); // Detect the user's actual timezone
+    cityName = "My Current Location";
+  }
+
+  let cityTime = moment().tz(cityTimeZone);
+
+  // Update only the relevant elements
+  let mainTimeElement = document.querySelector("#main-time");
+  let mainDateElement = document.querySelector("#main-date");
+  let mainLocationElement = document.querySelector("#main-location");
+
+  mainTimeElement.innerHTML = cityTime.format("h:mm:ss A");
+  mainDateElement.innerHTML = cityTime.format("dddd, MMM Do YYYY");
+  mainLocationElement.innerHTML = cityName;
+}
 updateTime();
 setInterval(updateTime, 1000);
+
+let citiesSelectElement = document.querySelector("#city-selector");
+citiesSelectElement.addEventListener("change", updateCity);
