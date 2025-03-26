@@ -1,3 +1,157 @@
-footer {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #17ecf2, #264191, #6634a3, #f645fb);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: #0b0b1c;
+  padding: 2rem;
+  border-radius: 20px;
   text-align: center;
+  width: 900px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 90px;
+  height: 90px;
+}
+
+.controls {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+button {
+  background: #bb4fd9;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button.active {
+  background: #9333ea;
+}
+
+.city-selector {
+  margin: 20px 0;
+}
+
+select {
+  padding: 10px;
+  width: 80%;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.main-clock {
+  font-weight: bold;
+}
+
+#main-time {
+  font-size: 90px;
+  margin-top: 60px;
+}
+
+#main-date {
+  font-size: 25px;
+  color: #a855f7;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: 200;
+}
+
+#main-location {
+  font-size: 40px;
+  color: #17ecf2;
+  margin-bottom: 60px;
+  font-weight: bold;
+}
+
+.city-times {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.city {
+  background: white;
+  color: black;
+  padding: 40px 60px;
+  border-radius: 15px;
+  text-align: center;
+  width: 250px;
+}
+
+.city-name {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.city-time {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.city-state {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+footer {
+  display: flex;
+  font-size: 14px;
+  padding-top: 50px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 30px 0 0 0;
+  font-size: 14px;
+  margin-top: 40px;
+  text-align: center;
+  line-height: 18px;
+}
+
+footer a {
+  color: #a855f7;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: #f645fb;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sa-logo {
+  width: 50px;
+  margin-left: 5px;
 }
