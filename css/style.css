@@ -66,25 +66,26 @@ button.active {
 }
 
 .city-selector {
-  margin: 20px 0;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
-input[type="text"] {
-  padding: 12px 20px;
-  width: 80%;
-  border-radius: 5px;
-  font-size: 16px;
-  text-align: center;
-  border: none;
-  background: #1f1f2b;
-  color: white;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+.city-selector select {
+  font-size: 18px;
+  padding: 10px;
+  width: 400px;
+  max-width: 100%;
+  border: 2px solid #9333ea;
+  border-radius: 6px;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
 }
 
-input[type="text"]:focus {
+.city-selector select:focus {
   outline: none;
-  border: 2px solid #a855f7;
-  background: #262636;
+  border-color: #3498db;
 }
 
 .main-clock {
