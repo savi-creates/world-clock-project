@@ -4,22 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>World Clock</title>
+    <title>World Clock - TimeLoop</title>
   </head>
   <body>
-    <h1>World Clock</h1>
-    <footer>
-      Coded by
-      <a href="https://github.com/savi-creates" target="_blank">
-        Savannah Andresson,</a
-      >
-      is
-      <a
-        href="https://github.com/savi-creates/world-clock-project"
-        target="_blank"
-        >open-sourced on GitHub
-      </a>
-    </footer>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <img src="images/logo.png" alt="TimeLoop Logo" />
+          <span>TimeLoop</span>
+        </div>
+        <div class="controls">
+          <button id="twelveHour">12h</button>
+          <button id="twentyFourHour" class="active">24h</button>
+        </div>
+      </header>
+
+      <!-- Dropdown for choosing a city -->
+      <div class="city-selector">
+        <select id="city-dropdown">
+          <option value="" disabled selected>Choose a City</option>
+          <option value="Lisbon">Lisbon</option>
+          <option value="London">London</option>
+          <option value="New York">New York</option>
+          <option value="Tokyo">Tokyo</option>
+        </select>
+      </div>
+
+      <!-- Main Clock Display -->
+      <div class="main-clock">
+        <div class="time" id="main-time">10:17:27</div>
+        <div class="date" id="main-date">Wednesday, Mar 26 2025</div>
+        <div class="location" id="main-location">Lisbon, Portugal</div>
+      </div>
+
+      <!-- City Time Cards -->
+      <div class="city-times">
+        <div class="city">
+          <div class="city-name">London</div>
+          <div class="city-time" id="time-london">15:17:27</div>
+          <div class="city-state">DAY</div>
+        </div>
+        <div class="city">
+          <div class="city-name">New York</div>
+          <div class="city-time" id="time-newyork">06:06</div>
+          <div class="city-state">NIGHT</div>
+        </div>
+        <div class="city">
+          <div class="city-name">Tokyo</div>
+          <div class="city-time" id="time-tokyo">11:38</div>
+          <div class="city-state">DAY</div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer>
+        <p>
+          This project was coded and designed by
+          <a href="https://github.com/savi-creates" target="_blank"
+            >Savannah Andresson</a
+          >
+          and is
+          <a
+            href="https://github.com/savi-creates/world-clock-project"
+            target="_blank"
+            >open-sourced on GitHub</a
+          >
+          and
+          <a href="https://www.netlify.com/" target="_blank"
+            >hosted on Netlify</a
+          >.
+        </p>
+        <img src="images/SA-tag.png" alt="SA Logo" class="sa-logo" />
+      </footer>
+    </div>
+
     <script src="javascript/index.js"></script>
   </body>
 </html>
