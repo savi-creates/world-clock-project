@@ -23,7 +23,7 @@ function updateCity(event) {
 
   if (cityTimeZone === "current-location") {
     cityTimeZone = moment.tz.guess();
-    cityName = "Current location";
+    cityName = "";
   }
 
   if (cityTimeZone !== "") {
