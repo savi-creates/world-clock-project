@@ -61,8 +61,10 @@ button {
   margin: 5px;
 }
 
-button.active {
-  background: #9333ea;
+button:hover {
+  background: #f645fb;
+  color: #0b0b1c;
+  transition: color 0.2s ease;
 }
 
 .city-selector {
