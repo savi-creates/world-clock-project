@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.47/moment-timezone-with-data-1970-2030.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.47/moment-timezone-with-data-1970-2030.min.js"></script>
     <title>World Clock - TimeLoop</title>
   </head>
   <body>
@@ -22,11 +22,7 @@
       </header>
 
       <div class="city-selector">
-        <input
-          type="text"
-          id="city-input"
-          placeholder="Enter a city (e.g. Lisbon)"
-        />
+        <input type="text" id="city-input" placeholder="Search for a city..." />
       </div>
 
       <div class="main-clock">
@@ -38,17 +34,17 @@
       <div class="city-times">
         <div class="city">
           <div class="city-name">London</div>
-          <div class="city-time" id="time-london">15:17</div>
+          <div class="city-time" id="time-london">00:00</div>
           <div class="city-state" id="city-state-london">DAY</div>
         </div>
         <div class="city">
           <div class="city-name">New York</div>
-          <div class="city-time" id="time-newyork">06:06</div>
-          <div class="city-state" id="city-state-newyork">NIGHT</div>
+          <div class="city-time" id="time-newyork">00:00</div>
+          <div class="city-state" id="city-state-newyork">DAY</div>
         </div>
         <div class="city">
           <div class="city-name">Tokyo</div>
-          <div class="city-time" id="time-tokyo">11:38</div>
+          <div class="city-time" id="time-tokyo">00:00</div>
           <div class="city-state" id="city-state-tokyo">DAY</div>
         </div>
       </div>
