@@ -1,49 +1,70 @@
 function updateTime() {
-  // London
-  let londonTimeElement = document.querySelector("#time-london");
-  let londonDateElement = document.querySelector("#city-state-london");
-  let londonTime = moment().tz("Europe/London");
+  const cities = [
+    { id: "london", zone: "Europe/London" },
+    { id: "newyork", zone: "America/New_York" },
+    { id: "tokyo", zone: "Asia/Tokyo" },
+  ];
 
-  londonDateElement.innerHTML = londonTime.format("ddd, MMM Do YYYY");
-  londonTimeElement.innerHTML = londonTime.format("h:mm:ss A");
+  cities.forEach((city) => {
+    let timeElement = document.querySelector(`#time-${city.id}`);
+    let dateElement = document.querySelector(`#city-state-${city.id}`);
+    let cityTime = moment().tz(city.zone);
 
-  // New York
-  let newYorkTimeElement = document.querySelector("#time-newyork");
-  let newYorkDateElement = document.querySelector("#city-state-newyork");
-  let newYorkTime = moment().tz("America/New_York");
-
-  newYorkDateElement.innerHTML = newYorkTime.format("ddd, MMM Do YYYY");
-  newYorkTimeElement.innerHTML = newYorkTime.format("h:mm:ss A");
-
-  // Tokyo
-  let tokyoTimeElement = document.querySelector("#time-tokyo");
-  let tokyoDateElement = document.querySelector("#city-state-tokyo");
-  let tokyoTime = moment().tz("Asia/Tokyo");
-
-  tokyoDateElement.innerHTML = tokyoTime.format("ddd, MMM Do YYYY");
-  tokyoTimeElement.innerHTML = tokyoTime.format("h:mm:ss A");
+    timeElement.innerHTML = cityTime.format("h:mm:ss A");
+    dateElement.innerHTML = cityTime.format("ddd, MMM Do YYYY");
+  });
 }
+
+let selectedTimeZone = moment.tz.guess();
 
 function updateCity(event) {
   let cityTimeZone = event.target.value;
-
   let cityName = event.target.options[event.target.selectedIndex].text;
 
   if (cityTimeZone === "current-location") {
     cityTimeZone = moment.tz.guess();
-    cityName = "";
+    cityName = "Current location";
   }
 
-  let cityTime = moment().tz(cityTimeZone);
+  if (cityTimeZone !== "") {
+    event.target.options[0].disabled = true;
+  }
 
-  let mainTimeElement = document.querySelector("#main-time");
-  let mainDateElement = document.querySelector("#main-date");
-  let mainLocationElement = document.querySelector("#main-location");
+  selectedTimeZone = cityTimeZone;
 
-  mainTimeElement.innerHTML = cityTime.format("h:mm:ss A");
-  mainDateElement.innerHTML = cityTime.format("dddd, MMM Do YYYY");
-  mainLocationElement.innerHTML = cityName;
+  document.querySelector("#main-location").innerHTML = cityName;
+  updateMainClock();
 }
+
+function updateMainClock() {
+  let cityTime = moment().tz(selectedTimeZone);
+  let format = is24HourFormat ? "HH:mm:ss" : "h:mm:ss A";
+
+  document.querySelector("#main-time").innerHTML = cityTime.format(format);
+  document.querySelector("#main-date").innerHTML =
+    cityTime.format("dddd, MMM Do YYYY");
+}
+
+let is24HourFormat = false;
+
+document.querySelector("#twelveHour").classList.add("active");
+
+document.querySelector("#twelveHour").addEventListener("click", () => {
+  is24HourFormat = false;
+  updateMainClock();
+  document.querySelector("#twelveHour").classList.add("active");
+  document.querySelector("#twentyFourHour").classList.remove("active");
+});
+
+document.querySelector("#twentyFourHour").addEventListener("click", () => {
+  is24HourFormat = true;
+  updateMainClock();
+  document.querySelector("#twentyFourHour").classList.add("active");
+  document.querySelector("#twelveHour").classList.remove("active");
+});
+
+setInterval(updateMainClock, 1000);
+updateMainClock();
 
 updateTime();
 setInterval(updateTime, 1000);
