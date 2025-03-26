@@ -129,17 +129,18 @@ button.active {
 }
 
 .city-name {
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 10px;
+  font-weight: bolder;
 }
 
 .city-time {
-  font-size: 35px;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .city-state {
-  font-size: 18px;
+  font-size: 14px;
   margin-top: 10px;
 }
 
