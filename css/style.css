@@ -53,6 +53,10 @@ button {
   margin: 5px;
 }
 
+button:hover {
+  background-color: #f645fb;
+}
+
 button.active {
   background: #9333ea;
 }
